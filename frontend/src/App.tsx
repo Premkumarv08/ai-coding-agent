@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChatArea } from './components/ChatArea';
 import { ChatInput } from './components/ChatInput';
 import { Sidebar } from './components/Sidebar';
