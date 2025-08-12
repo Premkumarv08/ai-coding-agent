@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { ChatState, Message, CodeArtifact } from '../types';
 import { setCurrentArtifact } from './sidebarSlice';
+import { API_BASE } from '../lib/utils';
 
 const initialState: ChatState = {
   messages: [],
@@ -34,7 +35,7 @@ export const sendMessage = createAsyncThunk(
     dispatch(addMessage(assistantMessage));
     
     try {
-      const response = await fetch('/api/chat/stream', {
+      const response = await fetch(`${API_BASE}/api/chat/stream`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -85,3 +85,5 @@ export function downloadFile(content: string, filename: string) {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
+
+export const API_BASE = import.meta.env.VITE_API_TARGET
