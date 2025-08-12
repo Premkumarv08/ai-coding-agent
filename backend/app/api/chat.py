@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from sse_starlette.sse import EventSourceResponse
 import json
 from typing import AsyncGenerator
+from ..models import ChatRequest
 from ..services.gemini_service import GeminiService
 from ..config import settings
 
