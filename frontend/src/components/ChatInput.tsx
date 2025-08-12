@@ -27,7 +27,6 @@ export const ChatInput: React.FC = () => {
     }
   };
 
-  // Auto-resize textarea
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';

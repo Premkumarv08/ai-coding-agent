@@ -7,7 +7,6 @@ export const ChatArea: React.FC = () => {
   const messages = useSelector((state: RootState) => state.chat.messages);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;

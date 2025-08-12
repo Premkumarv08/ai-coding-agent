@@ -8,14 +8,12 @@ const initialState: ChatState = {
   error: null,
 };
 
-// Async thunk for sending messages
 export const sendMessage = createAsyncThunk(
   'chat/sendMessage',
   async (message: string, { getState, dispatch }) => {
     const state = getState() as { chat: ChatState };
     const conversationHistory = state.chat.messages;
     
-    // Add user message immediately
     const userMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
@@ -25,7 +23,6 @@ export const sendMessage = createAsyncThunk(
     
     dispatch(addMessage(userMessage));
     
-    // Create assistant message for streaming
     const assistantMessage: Message = {
       id: (Date.now() + 1).toString(),
       role: 'assistant',
@@ -91,7 +88,6 @@ export const sendMessage = createAsyncThunk(
                 };
                 currentCodeArtifacts.push(codeArtifact);
                 
-                // Update sidebar with the latest code artifact
                 dispatch(setCurrentArtifact(codeArtifact));
               } else if (data.type === 'end') {
                 dispatch(finishStreamingMessage({

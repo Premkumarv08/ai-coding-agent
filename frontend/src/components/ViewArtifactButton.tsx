@@ -11,7 +11,6 @@ export const ViewArtifactButton: React.FC = () => {
   const { currentArtifact } = useSelector((state: RootState) => state.sidebar);
   const dispatch = useDispatch();
 
-  // Find the latest assistant message with code artifacts
   const latestAssistantMessage = messages
     .filter(msg => msg.role === 'assistant' && !msg.isStreaming)
     .pop();
@@ -26,7 +25,6 @@ export const ViewArtifactButton: React.FC = () => {
     return null;
   }
 
-  // Use the first code artifact for the button
   const firstArtifact = {
     id: Date.now().toString(),
     language: codeArtifacts[0].language,
@@ -36,10 +34,8 @@ export const ViewArtifactButton: React.FC = () => {
 
   const handleViewArtifact = () => {
     if (currentArtifact && currentArtifact.id === firstArtifact.id) {
-      // If the same artifact is already open, close the sidebar
       dispatch(toggleSidebar(null));
     } else {
-      // Open the sidebar with the new artifact
       dispatch(toggleSidebar(firstArtifact));
     }
   };

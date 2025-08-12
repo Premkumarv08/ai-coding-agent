@@ -3,14 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from .api.chat import router as chat_router
 from .config import settings
 
-# Create FastAPI app
 app = FastAPI(
     title="AI Coding Agent API",
     description="Backend API for AI Coding Agent with Gemini 2.5 integration",
     version="1.0.0"
 )
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.ALLOWED_ORIGINS,
@@ -19,7 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API routes
 app.include_router(chat_router, prefix=settings.API_PREFIX)
 
 @app.get("/")

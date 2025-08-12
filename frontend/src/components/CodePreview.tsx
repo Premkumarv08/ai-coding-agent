@@ -14,7 +14,6 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ artifact }) => {
       const doc = iframe.contentDocument || iframe.contentWindow?.document;
       
       if (doc) {
-        // Create a basic HTML structure if it's just CSS or JS
         let htmlContent = '';
         
         if (artifact.language === 'html') {
