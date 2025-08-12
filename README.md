@@ -113,6 +113,10 @@ ai-coding-agent/
    ```
 
 3. **Set up environment variables**:
+   Create a `.env` file in the frontend directory:
+   ```env
+   VITE_API_TARGET=http://localhost:8000
+   ```
    Create a `.env` file in the backend directory:
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
@@ -206,6 +210,7 @@ data: {"type": "end", "data": ""}
 - `GEMINI_API_KEY`: Your Gemini API key
 - `ALLOWED_ORIGINS`: CORS allowed origins (JSON array)
 - `API_PREFIX`: API route prefix (default: `/api`)
+- `VITE_API_TARGET `: Frontend API target
 
 ### Frontend Configuration
 - Vite dev server runs on port 5173
