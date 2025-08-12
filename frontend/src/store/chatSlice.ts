@@ -19,7 +19,7 @@ export const sendMessage = createAsyncThunk(
       id: Date.now().toString(),
       role: 'user',
       content: message,
-      timestamp: new Date(),
+      timestamp: new Date().toISOString(),
     };
     
     dispatch(addMessage(userMessage));
@@ -28,7 +28,7 @@ export const sendMessage = createAsyncThunk(
       id: (Date.now() + 1).toString(),
       role: 'assistant',
       content: '',
-      timestamp: new Date(),
+      timestamp: new Date().toISOString(),
       isStreaming: true,
     };
     

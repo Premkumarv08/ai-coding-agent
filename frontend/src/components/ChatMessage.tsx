@@ -41,7 +41,7 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
         </div>
         
         <div className="text-xs text-muted-foreground mt-1">
-          {formatTimestamp(message.timestamp)}
+          {formatTimestamp(new Date(message.timestamp as string))}
         </div>
       </div>
       
