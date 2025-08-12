@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../store/store';
 import { sendMessage } from '../store/chatSlice';
 import { Button } from './ui/button';
 import { Textarea } from './ui/textarea';
@@ -9,8 +9,8 @@ import { RootState } from '../store/store';
 export const ChatInput: React.FC = () => {
   const [message, setMessage] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const dispatch = useDispatch();
-  const isLoading = useSelector((state: RootState) => state.chat.isLoading);
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state: RootState) => state.chat.isLoading);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
