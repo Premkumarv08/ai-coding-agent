@@ -115,7 +115,7 @@ ai-coding-agent/
 3. **Set up environment variables**:
    Create a `.env` file in the frontend directory:
    ```env
-   VITE_API_TARGET=http://localhost:8000
+   VITE_API_TARGET=http://127.0.0.1:8000
    ```
    Create a `.env` file in the backend directory:
    ```env
