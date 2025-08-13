@@ -58,7 +58,6 @@
   }
 }
 
-/* Custom scrollbar styles */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -76,17 +75,14 @@
   background: hsl(var(--foreground));
 }
 
-/* Monaco Editor custom styles */
 .monaco-editor {
   border-radius: var(--radius);
 }
 
-/* Code block styles */
 .code-block {
   @apply bg-muted border rounded-md p-4 font-mono text-sm;
 }
 
-/* Streaming animation */
 .streaming-dot {
   @apply inline-block w-2 h-2 bg-current rounded-full animate-pulse;
   animation: streaming 1.4s infinite ease-in-out;

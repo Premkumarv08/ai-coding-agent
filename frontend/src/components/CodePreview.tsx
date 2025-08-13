@@ -49,6 +49,11 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ artifact }) => {
   const fixCommonIssues = (code: string): string => {
     let fixedCode = code;
 
+    fixedCode = fixedCode.replace(/(\/\/.*?)`([^`]*?)`(.*?)$/gm, '$1"$2"$3');
+    fixedCode = fixedCode.replace(/(\/\*[\s\S]*?)`([^`]*?)`([\s\S]*?\*\/)/g, '$1"$2"$3');
+    
+    fixedCode = fixedCode.replace(/(\/\/.*?)`([^`\n]*?)$/gm, '$1"$2"');
+    
     const reactHooks = ['useState', 'useEffect', 'useContext', 'useReducer', 'useCallback', 'useMemo', 'useRef', 'useImperativeHandle', 'useLayoutEffect'];
     
     reactHooks.forEach(hook => {
@@ -63,6 +68,11 @@ export const CodePreview: React.FC<CodePreviewProps> = ({ artifact }) => {
     });
 
     fixedCode = fixedCode.replace(/const\s*\{\s*([^}]+)\s*\}\s*=\s*React;?\s*/g, '');
+
+    fixedCode = fixedCode.replace(/(\/\/.*?)\$\{([^}]*?)\}(.*?)$/gm, '$1${$2}$3');
+
+    fixedCode = fixedCode.replace(/(\/\/.*?)[\u2018\u2019]/gm, '$1\'');
+    fixedCode = fixedCode.replace(/(\/\/.*?)[\u201C\u201D]/gm, '$1"');
 
     return fixedCode;
   };
