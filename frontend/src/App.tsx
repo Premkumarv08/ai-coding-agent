@@ -17,7 +17,6 @@ function App() {
       )}>
         <div className="border-b bg-background p-4 flex-shrink-0">
           <h1 className="text-xl font-semibold">AI Coding Agent</h1>
-          <p className="text-sm text-muted-foreground">Powered by Gemini 2.5</p>
         </div>
 
         <div className="flex-1 overflow-hidden">
